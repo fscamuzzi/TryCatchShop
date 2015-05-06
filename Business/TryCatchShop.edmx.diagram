@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d52f750e79854fdc9bc4300a92d92842" Name="Diagram1">
+        <EntityTypeShape EntityType="TryCatchShopModel.AspNetRole" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TryCatchShopModel.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TryCatchShopModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TryCatchShopModel.AspNetUser" Width="1.5" PointX="3" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TryCatchShopModel.cart" Width="1.5" PointX="8.25" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TryCatchShopModel.cart_item" Width="1.5" PointX="10.5" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TryCatchShopModel.customer" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <AssociationConnector Association="TryCatchShopModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="TryCatchShopModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="TryCatchShopModel.FK_AspNetUsers_customer" ManuallyRouted="false" />
+        <AssociationConnector Association="TryCatchShopModel.FK_cart_asp_net_user" ManuallyRouted="false" />
+        <AssociationConnector Association="TryCatchShopModel.FK_cart_customer" ManuallyRouted="false" />
+        <AssociationConnector Association="TryCatchShopModel.FK_chart_item_chart" ManuallyRouted="false" />
+        <AssociationConnector Association="TryCatchShopModel.AspNetUserRoles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="TryCatchShopModel.product_image" Width="1.5" PointX="9.625" PointY="8.25" />
+        <EntityTypeShape EntityType="TryCatchShopModel.product" Width="1.5" PointX="7.375" PointY="8.875" />
+        <AssociationConnector Association="TryCatchShopModel.FK_product_image_products" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

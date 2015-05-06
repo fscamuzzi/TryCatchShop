@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="trycatchshop" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\_mySviluppo\\TryCatchShop\\TryCatchShop\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\_mySviluppo\\TryCatchShop\\TryCatchShop\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." value="Data Source=(local);initial catalog=TryCatchShop;integrated security=True" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\_mySviluppo\\TryCatchShop\\TryCatchShop\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+  <parameter name="TryCatchShopEntities-Web.config Connection String" description="TryCatchShopEntities Connection String used in web.config by the application to access the database." value="metadata=res://*/TryCatchShop.csdl|res://*/TryCatchShop.ssdl|res://*/TryCatchShop.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=(local);initial catalog=TryCatchShop;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\_mySviluppo\\TryCatchShop\\TryCatchShop\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='TryCatchShopEntities']/@connectionString" />
+  </parameter>
+</parameters>

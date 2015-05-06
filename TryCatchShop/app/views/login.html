@@ -1,0 +1,39 @@
+﻿<div>
+    <div class="modal-header">
+        <h1 class="modal-title-site text-center p-t-15">Login</h1>
+    </div>
+    <div class="modal-body">
+        <div class="row" style="margin-top: 30px; margin-bottom: 30px">
+            <div class="col-md-12">
+                <form class="form-login" role="form">
+                    <div class="row">
+
+                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+
+                            <span class="mobileMarginB"></span>
+
+                            <h3 class="form-login-heading formLoginPage">CREDENTIAL</h3>
+                            <input type="text" class="form-control controlL usernamebkg marginTop10" placeholder="Username" data-ng-model="loginData.userName" required autofocus>
+                            <input type="password" class="form-control controlL passwordbkg marginTop10" placeholder="Password" data-ng-model="loginData.password" required>
+                            <span style="margin-top: 10px;font-size: 14px;">
+                                <a ng-click="openReg()"> register </a>
+                            </span>
+                            <div data-ng-hide="message == ''" class="alert alert-danger">
+                                {{message}}
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-theme" ng-click="login()">
+            Login
+        </button>
+        <button class="btn btn-white" ng-click="close()">
+            Esci
+        </button>
+    </div>
+</div>

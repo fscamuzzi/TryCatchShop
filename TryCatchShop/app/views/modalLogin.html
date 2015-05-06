@@ -1,0 +1,66 @@
+﻿<div class="modal-body">
+        <div class="row">
+            
+            <div class="col-md-2 col-lg-2 col-sm-2 col-xs-1"></div>
+
+
+            <div class="col-md-8 col-lg-8 col-sm-8 col-xs-10">
+                
+                <form class="login" role="form">
+
+                    <h2 class ="bottom20">Login</h2>
+
+                    <input type="text" placeholder="Username" data-ng-model="loginData.userName" required autofocus>
+
+                    <input type="password" placeholder="Password" data-ng-model="loginData.password" required>
+
+                    <button type="button" class="btn btnOrange100" data-ng-click="login()">Effettua l'accesso</button>
+                    
+                    <!--
+                        
+                        SERVE DAVVERO UN LOGIN SOCIAL PER UN'AGENZIA PRESTITI?
+
+                        <div class="lineH"></div>
+
+                        <div class="text-center socialLogin">
+                            <a class="btn btn-social-icon btn-facebook btnSocial">
+                                <i class="fa fa-facebook"></i> Login con Facebook
+                            </a>
+
+                            <a class="btn btn-social-icon btn-twitter btnSocial">
+                                <i class="fa fa-twitter"></i> Login con Twitter
+                            </a>
+
+                            <a class="btn btn-social-icon btn-google-plus btnSocial">
+                                <i class="fa fa-google-plus"></i> Login con Google +
+                            </a>
+                        </div>
+
+                        <div data-ng-hide="message == ''" class="alert alert-danger">
+                            {{message}}
+                        </div>
+                        
+                        -->
+                    <div class="lineH"></div>
+
+                    <div class="marginTB">
+                        <p class="">
+                            <!-- 
+                            QUESTA PARTE NON DOVREBBE VEDERSI, NO?
+                            perchè puoi registrare un utente solo se hai già effettuato il login, giusto? -RP
+                                    
+                             Non sei ancora registrato?
+                            <a href="signup.html" class="btn_mobileSignup bottom20">Registrati</a>
+                            <br />  -->
+                            <a href="#">Non ricordi la password?</a><br />
+                        </p>
+                    </div>
+
+                </form>
+
+            </div>
+            
+            <div class="col-md-2 col-lg-2 col-sm-2 col-xs-1"></div>
+
+            </div>
+</div>

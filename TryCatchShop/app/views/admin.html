@@ -1,0 +1,111 @@
+﻿<div class="col-md-12">
+    <form name="formPrev" novalidate class="css-form" action="">
+        <div class="boxForm img-rounded">
+            <h1 style="color: #266eb1 !important" class="text-center marginTB">Insert new Product</h1>
+            <div class="row">
+                <div class="boxInput">
+                    <label for="name" class="typeInput singleLine">Product Name</label>
+                    <input type="text" class="form-control" name="name" placeholder="Nome" ng-model="form.name" required>
+                </div>
+                <div class="clearfix"></div>
+                <div class="boxInput">
+                    <label for="qty" class="typeInput singleLine">Qty</label>
+                    <input type="number" class="form-control" name="qty" placeholder="quantity" ng-model="form.qty" required>
+                </div>
+                <div class="clearfix"></div>
+                <div class="boxInput">
+                    <label for="price" class="typeInput singleLine">Price</label>
+                    <input type="text" class="form-control" name="price" placeholder="price" ng-model="form.price" required>
+                </div>
+                <div class="clearfix"></div>
+                <div class="boxInput">
+                    <label class="typeInput singleLine">Product Avaiable</label>
+                    <div class="checkbox">
+                        <input class="checkboxBtn" type="checkbox" value="" ng-model="form.avaiable" required>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="boxInput">
+                        <div class="col-md-5"></div>
+                        <div id="imgDragDrop" ng-file-drop ng-file-select ng-model="data.files" class="drop-box col-md-6"
+                             drag-over-class="dragover" ng-accept="'.jpg'" accept=".jpg" ng-multiple="true" allow-dir="true">
+
+                            <div class="dragdrop-box top20">
+                                <div class="media">
+                                    <div class="media"></div>
+                                    <div class="media-left">
+                                        <div class="media-object">
+                                            <img src="/content/images/itp_dragdrop_Yellow.png" />
+                                        </div>
+                                    </div>
+                                    <div class="media-body">
+                                        <div class="media-heading">
+                                            <h2 style="margin-top: 0px!important"></h2>
+                                            Upload a picture (jpg) for your product<br /><br />
+                                            <div class="btn btnOrange searchImg">Search on your computer...</div><br>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div ng-no-file-drop class="top20">
+                                <div class="alert-danger">
+                                    La funzionalità Drag/Drop non è supportata da questo browser.<br />
+                                    Usa Chrome o Firefox oppure cliccando sul pulsante "Sfoglia sul tuo computer"
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-1"></div>
+                    </div>
+                </div>
+                <div class="progress" ng-show="uploading">
+                    <div class="progress-bar progress-bar-striped progress-bar-orange" role="progressbar" aria-valuenow="{{ progress }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ progress }}%">
+                        <span class="sr-only">{{ progress }}% Complete</span>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-8" data-ng-show="newProductImage.FileName">
+                        <label>image product:</label>
+                        <br />
+                        <img src="/content/images/{{ newProductImage.FileName }}" width="200" />
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+
+                <div class="boxInput marginB btnSend">
+
+                    <input type="button" id="sendBtn" ng-disabled="formPrev.$invalid" value="Register Product"
+                           class="btn btnOrange" ng-click="submit()" />
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="row">
+        <div>
+            <div class="col-md-12 boxForm img-rounded">
+                <h1 style="text-align: center">PRODUCT PRESENT IN STORE:</h1>
+                <div class="item col-md-2" data-ng-repeat="item in products">
+                    <span data-ng-repeat="itemImage in item.ProductImage">
+                        <img src="/content/images/{{ itemImage.image }}" width="70" height="70" />
+                    </span>
+                    <span><b>{{ item.name }}</b></span>
+                    <span>{{ item.price }}$</span>
+                    <span><i>avaiable in stock: </i>{{ item.avaiable }}</span>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-md-12">
+    </div>
+</div>

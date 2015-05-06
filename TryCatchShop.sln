@@ -1,0 +1,74 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TryCatchShop.Web", "TryCatchShop\TryCatchShop.Web.csproj", "{A276E2B8-0945-4187-B9D6-C3582CE8AB2A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TryCatchShop.Tests", "TryCatchShop.Tests\TryCatchShop.Tests.csproj", "{DEA98771-2C6E-4D51-B70B-4C9A11D0FC05}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TryCatchShop.Business", "Business\TryCatchShop.Business.csproj", "{6C6B3544-4808-4789-9BDC-68AE56BCE043}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TryCatchShop.DTO", "DTO\TryCatchShop.DTO.csproj", "{59683375-908F-402F-B9ED-B0A7B1B253C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logging", "Logging\Logging.csproj", "{D4413CF8-FF06-4774-8EE1-D33C13C1489D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{062A37B0-3008-420C-BA60-9A6A11FC74F5}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 6
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://coolsolutiondevelopment.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Business\\TryCatchShop.Business.csproj
+		SccProjectName1 = Business
+		SccLocalPath1 = Business
+		SccProjectUniqueName2 = DTO\\TryCatchShop.DTO.csproj
+		SccProjectName2 = DTO
+		SccLocalPath2 = DTO
+		SccProjectUniqueName3 = Logging\\Logging.csproj
+		SccProjectName3 = Logging
+		SccLocalPath3 = Logging
+		SccProjectUniqueName4 = TryCatchShop.Tests\\TryCatchShop.Tests.csproj
+		SccProjectName4 = TryCatchShop.Tests
+		SccLocalPath4 = TryCatchShop.Tests
+		SccProjectUniqueName5 = TryCatchShop\\TryCatchShop.Web.csproj
+		SccProjectName5 = TryCatchShop
+		SccLocalPath5 = TryCatchShop
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A276E2B8-0945-4187-B9D6-C3582CE8AB2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A276E2B8-0945-4187-B9D6-C3582CE8AB2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A276E2B8-0945-4187-B9D6-C3582CE8AB2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A276E2B8-0945-4187-B9D6-C3582CE8AB2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DEA98771-2C6E-4D51-B70B-4C9A11D0FC05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEA98771-2C6E-4D51-B70B-4C9A11D0FC05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEA98771-2C6E-4D51-B70B-4C9A11D0FC05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEA98771-2C6E-4D51-B70B-4C9A11D0FC05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C6B3544-4808-4789-9BDC-68AE56BCE043}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C6B3544-4808-4789-9BDC-68AE56BCE043}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C6B3544-4808-4789-9BDC-68AE56BCE043}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C6B3544-4808-4789-9BDC-68AE56BCE043}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59683375-908F-402F-B9ED-B0A7B1B253C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59683375-908F-402F-B9ED-B0A7B1B253C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59683375-908F-402F-B9ED-B0A7B1B253C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59683375-908F-402F-B9ED-B0A7B1B253C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4413CF8-FF06-4774-8EE1-D33C13C1489D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4413CF8-FF06-4774-8EE1-D33C13C1489D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4413CF8-FF06-4774-8EE1-D33C13C1489D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4413CF8-FF06-4774-8EE1-D33C13C1489D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

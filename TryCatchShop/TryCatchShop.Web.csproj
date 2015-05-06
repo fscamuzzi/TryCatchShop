@@ -1,0 +1,1040 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A276E2B8-0945-4187-B9D6-C3582CE8AB2A}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TryCatchShop</RootNamespace>
+    <AssemblyName>TryCatchShop</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PublishDatabaseSettings>
+      <Objects>
+        <ObjectGroup Name="DefaultConnection-Deployment" Order="1">
+          <Destination Path="" />
+          <Object Type="DbFullSql">
+            <PreSource Path="Data Source=%28LocalDb%29\v11.0%3bAttachDbFilename=|DataDirectory|\aspnet-TryCatchShop-20150429064648.mdf%3bInitial Catalog=aspnet-TryCatchShop-20150429064648%3bIntegrated Security=True" ScriptSchema="False" ScriptData="True" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <Source Path="obj\Debug\AutoScripts\DefaultConnection-Deployment_DataOnly.sql" Transacted="True" />
+          </Object>
+        </ObjectGroup>
+      </Objects>
+    </PublishDatabaseSettings>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=3.3.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AutoMapper.Net4, Version=3.3.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.Net4.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Cors, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Cors.3.0.1\lib\net45\Microsoft.Owin.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Cors, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.0.0\lib\net45\System.Web.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=__MvcPagesVersion__, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.2\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=__MvcPagesVersion__, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.2\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=__MvcPagesVersion__, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.2\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=__MvcPagesVersion__, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.2\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.2\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.WebApi, Version=5.1.0.0, Culture=neutral, PublicKeyToken=43da31bc42a85347, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.WebAPI.5.1\lib\net45\Unity.WebApi.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.1.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.1.0\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.1.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.0\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.0\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.0\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.0\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Owin.5.2.2\lib\net45\System.Web.Http.Owin.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\UnityResolver.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\ShopController.cs" />
+    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Mapping\AspNetRoleMapping.cs" />
+    <Compile Include="Mapping\AspNetUserMapping.cs" />
+    <Compile Include="Mapping\CartItemMapping.cs" />
+    <Compile Include="Mapping\CartMapping.cs" />
+    <Compile Include="Mapping\CustomerMapping.cs" />
+    <Compile Include="Mapping\ProductImageMapping.cs" />
+    <Compile Include="Mapping\ProductMapping.cs" />
+    <Compile Include="Models\AccountBindingModels.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\ApplicationOAuthProvider.cs" />
+    <Compile Include="Results\ChallengeResult.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app\app.js" />
+    <Content Include="app\controllers\ProductDetailController.js" />
+    <Content Include="app\controllers\ShopController.js" />
+    <Content Include="app\controllers\AdminController.js" />
+    <Content Include="app\controllers\HomeController.js" />
+    <Content Include="app\controllers\IndexController.js" />
+    <Content Include="app\controllers\LoginController.js" />
+    <Content Include="app\controllers\SignupController.js" />
+    <Content Include="app\directives\DatePickerDirective.js" />
+    <Content Include="app\directives\FullPageDirective.js" />
+    <Content Include="app\directives\NewsDirective.js" />
+    <Content Include="app\directives\ReallyMessageDirective.js" />
+    <Content Include="app\services\authDataService.js" />
+    <Content Include="app\services\authInterceptorService.js" />
+    <Content Include="app\services\currentUserFactory.js" />
+    <Content Include="app\services\shopDataService.js" />
+    <Content Include="app\services\userDataService.js" />
+    <Content Include="app\views\admin.html" />
+    <Content Include="app\views\home.html" />
+    <Content Include="app\views\login.html" />
+    <Content Include="app\views\modalLogin.html" />
+    <Content Include="app\views\modalSignup.html" />
+    <Content Include="app\views\productDetail.html" />
+    <Content Include="app\views\shop.html" />
+    <Content Include="app\views\signup.html" />
+    <Content Include="content\images\ajax-loader %284%29.gif" />
+    <Content Include="content\images\ajax-loader-medium.gif" />
+    <Content Include="content\images\ajax-loader-medium_.gif" />
+    <Content Include="content\images\ajax-loader-medium__.gif" />
+    <Content Include="content\images\ajax-loader.gif" />
+    <Content Include="content\images\arrow.png" />
+    <Content Include="content\images\bell.png" />
+    <Content Include="content\images\bell_b.png" />
+    <Content Include="content\images\header_img1.png" />
+    <Content Include="content\images\header_img2.png" />
+    <Content Include="content\images\icons_loan_1.png" />
+    <Content Include="content\images\icons_loan_2.png" />
+    <Content Include="content\images\itp_dragdrop_Yellow.png" />
+    <Content Include="content\images\itp_icn_add.png" />
+    <Content Include="content\images\itp_icn_approved.png" />
+    <Content Include="content\images\itp_icn_close.png" />
+    <Content Include="content\images\itp_icn_delete.png" />
+    <Content Include="content\images\itp_icn_hide.png" />
+    <Content Include="content\images\itp_icn_modify.png" />
+    <Content Include="content\images\itp_icn_show.png" />
+    <Content Include="content\images\itp_lock.png" />
+    <Content Include="content\images\itp_pin_blue.png" />
+    <Content Include="content\images\listtype.png" />
+    <Content Include="content\images\logged.png" />
+    <Content Include="content\images\logo.jpg" />
+    <Content Include="content\images\logoITP_mono.png" />
+    <Content Include="content\images\logoITP_monoBO.png" />
+    <Content Include="content\images\map_Italy.png" />
+    <Content Include="content\images\pin_blue.png" />
+    <Content Include="content\images\pin_blue_small.png" />
+    <Content Include="content\images\pin_orange.png" />
+    <Content Include="content\images\pin_orange_small.png" />
+    <Content Include="content\images\03282615-f9fd-4152-a359-10d6f4365c60_Koala.jpg" />
+    <Content Include="content\images\13552771-8c1b-4149-9c2e-97a06e99f93f_Tulips.jpg" />
+    <Content Include="content\images\15d6f0dd-637a-4bef-bdd6-1438e1a9e540_Lighthouse.jpg" />
+    <Content Include="content\images\23f70926-5612-46f5-879c-1b02a987a782_Penguins.jpg" />
+    <Content Include="content\images\2c225938-25a9-4d5f-a006-28a9765bc949_Tulips.jpg" />
+    <Content Include="content\images\2dc7ad98-1d3b-4ee3-b00e-1ec8affda427_Desert.jpg" />
+    <Content Include="content\images\705f7012-9a1e-4670-81c2-045894c9af5a_Penguins.jpg" />
+    <Content Include="content\images\827c3a87-e855-440e-9eba-f026974337d6_Tulips.jpg" />
+    <Content Include="content\images\9042bbac-9524-45ba-8bff-0f3cb039695e_Jellyfish.jpg" />
+    <Content Include="content\images\9ba75d90-6767-4715-9a43-a1d69f413f4a_Lighthouse.jpg" />
+    <Content Include="content\images\b22e3738-63c5-4221-a64f-6b5d6c1b6ef6_Penguins.jpg" />
+    <Content Include="content\images\ba6285a6-f9c0-4fdb-b65f-e79a64754d03_Chrysanthemum.jpg" />
+    <Content Include="content\images\c2309d87-33a5-40e0-ac2a-64f4c28549c1_Penguins.jpg" />
+    <Content Include="content\images\c43eccf6-7190-490b-9509-c94f611cced0_Koala.jpg" />
+    <Content Include="content\images\d074ffe7-06e3-46eb-8fdb-d85c1fc9ba1e_Lighthouse.jpg" />
+    <Content Include="content\images\woman.png" />
+    <Content Include="content\style\bootstrap.css" />
+    <Content Include="content\style\bootstrap.min.css" />
+    <Content Include="content\style\style.css" />
+    <Content Include="content\style\variables.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="gulpfile.js" />
+    <Content Include="index.html" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="log4net.config" />
+    <Content Include="content\style\style.less" />
+    <Content Include="content\style\variables.less" />
+    <Content Include=".jshintrc" />
+    <Content Include=".bowerrc" />
+    <None Include="Properties\PublishProfiles\trycatchshop - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\trycatchshop - Web Deploy.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <None Include="Scripts\JSLINQ-vsdoc.js" />
+    <Content Include="Scripts\JSLINQ.js" />
+    <Content Include="Scripts\lib\angular-animate\angular-animate.js" />
+    <Content Include="Scripts\lib\angular-animate\angular-animate.min.js" />
+    <Content Include="Scripts\lib\angular-animate\index.js" />
+    <Content Include="Scripts\lib\angular-loading-bar\build\loading-bar.css" />
+    <Content Include="Scripts\lib\angular-loading-bar\build\loading-bar.js" />
+    <Content Include="Scripts\lib\angular-loading-bar\build\loading-bar.min.css" />
+    <Content Include="Scripts\lib\angular-loading-bar\build\loading-bar.min.js" />
+    <Content Include="Scripts\lib\angular-loading-bar\Gruntfile.js" />
+    <Content Include="Scripts\lib\angular-loading-bar\src\loading-bar.css" />
+    <Content Include="Scripts\lib\angular-loading-bar\src\loading-bar.js" />
+    <Content Include="Scripts\lib\angular-local-storage\.gitattributes" />
+    <Content Include="Scripts\lib\angular-local-storage\.gitignore" />
+    <Content Include="Scripts\lib\angular-local-storage\demo\demo-app.js" />
+    <Content Include="Scripts\lib\angular-local-storage\demo\demo-style.css" />
+    <Content Include="Scripts\lib\angular-local-storage\demo\demo.html" />
+    <Content Include="Scripts\lib\angular-local-storage\dist\angular-local-storage.js" />
+    <Content Include="Scripts\lib\angular-local-storage\dist\angular-local-storage.min.js" />
+    <Content Include="Scripts\lib\angular-resource\angular-resource.js" />
+    <Content Include="Scripts\lib\angular-resource\angular-resource.min.js" />
+    <Content Include="Scripts\lib\angular-resource\index.js" />
+    <Content Include="Scripts\lib\angular-route\angular-route.js" />
+    <Content Include="Scripts\lib\angular-route\angular-route.min.js" />
+    <Content Include="Scripts\lib\angular-route\index.js" />
+    <Content Include="Scripts\lib\angular\angular-csp.css" />
+    <Content Include="Scripts\lib\angular\angular.js" />
+    <Content Include="Scripts\lib\angular\angular.min.js" />
+    <Content Include="Scripts\lib\angular\index.js" />
+    <Content Include="Scripts\lib\bootstrap\dist\css\bootstrap-theme.css" />
+    <Content Include="Scripts\lib\bootstrap\dist\css\bootstrap-theme.min.css" />
+    <Content Include="Scripts\lib\bootstrap\dist\css\bootstrap.css" />
+    <Content Include="Scripts\lib\bootstrap\dist\css\bootstrap.min.css" />
+    <Content Include="Scripts\lib\bootstrap\dist\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Scripts\lib\bootstrap\dist\js\bootstrap.js" />
+    <Content Include="Scripts\lib\bootstrap\dist\js\bootstrap.min.js" />
+    <Content Include="Scripts\lib\bootstrap\dist\js\npm.js" />
+    <Content Include="Scripts\lib\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Scripts\lib\bootstrap\Gruntfile.js" />
+    <Content Include="Scripts\lib\bootstrap\grunt\bs-commonjs-generator.js" />
+    <Content Include="Scripts\lib\bootstrap\grunt\bs-glyphicons-data-generator.js" />
+    <Content Include="Scripts\lib\bootstrap\grunt\bs-lessdoc-parser.js" />
+    <Content Include="Scripts\lib\bootstrap\grunt\bs-raw-files-generator.js" />
+    <Content Include="Scripts\lib\bootstrap\js\affix.js" />
+    <Content Include="Scripts\lib\bootstrap\js\alert.js" />
+    <Content Include="Scripts\lib\bootstrap\js\button.js" />
+    <Content Include="Scripts\lib\bootstrap\js\carousel.js" />
+    <Content Include="Scripts\lib\bootstrap\js\collapse.js" />
+    <Content Include="Scripts\lib\bootstrap\js\dropdown.js" />
+    <Content Include="Scripts\lib\bootstrap\js\modal.js" />
+    <Content Include="Scripts\lib\bootstrap\js\popover.js" />
+    <Content Include="Scripts\lib\bootstrap\js\scrollspy.js" />
+    <Content Include="Scripts\lib\bootstrap\js\tab.js" />
+    <Content Include="Scripts\lib\bootstrap\js\tooltip.js" />
+    <Content Include="Scripts\lib\bootstrap\js\transition.js" />
+    <Content Include="Scripts\lib\bootstrap\package.js" />
+    <Content Include="Scripts\lib\font-awesome\.gitignore" />
+    <Content Include="Scripts\lib\font-awesome\css\font-awesome.css" />
+    <Content Include="Scripts\lib\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Scripts\lib\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Scripts\lib\jquery\dist\jquery.js" />
+    <Content Include="Scripts\lib\jquery\dist\jquery.min.js" />
+    <Content Include="Scripts\lib\jquery\MIT-LICENSE.txt" />
+    <Content Include="Scripts\lib\jquery\src\ajax.js" />
+    <Content Include="Scripts\lib\jquery\src\ajax\jsonp.js" />
+    <Content Include="Scripts\lib\jquery\src\ajax\load.js" />
+    <Content Include="Scripts\lib\jquery\src\ajax\parseJSON.js" />
+    <Content Include="Scripts\lib\jquery\src\ajax\parseXML.js" />
+    <Content Include="Scripts\lib\jquery\src\ajax\script.js" />
+    <Content Include="Scripts\lib\jquery\src\ajax\var\nonce.js" />
+    <Content Include="Scripts\lib\jquery\src\ajax\var\rquery.js" />
+    <Content Include="Scripts\lib\jquery\src\ajax\xhr.js" />
+    <Content Include="Scripts\lib\jquery\src\attributes.js" />
+    <Content Include="Scripts\lib\jquery\src\attributes\attr.js" />
+    <Content Include="Scripts\lib\jquery\src\attributes\classes.js" />
+    <Content Include="Scripts\lib\jquery\src\attributes\prop.js" />
+    <Content Include="Scripts\lib\jquery\src\attributes\support.js" />
+    <Content Include="Scripts\lib\jquery\src\attributes\val.js" />
+    <Content Include="Scripts\lib\jquery\src\callbacks.js" />
+    <Content Include="Scripts\lib\jquery\src\core.js" />
+    <Content Include="Scripts\lib\jquery\src\core\access.js" />
+    <Content Include="Scripts\lib\jquery\src\core\init.js" />
+    <Content Include="Scripts\lib\jquery\src\core\parseHTML.js" />
+    <Content Include="Scripts\lib\jquery\src\core\ready.js" />
+    <Content Include="Scripts\lib\jquery\src\core\var\rsingleTag.js" />
+    <Content Include="Scripts\lib\jquery\src\css.js" />
+    <Content Include="Scripts\lib\jquery\src\css\addGetHookIf.js" />
+    <Content Include="Scripts\lib\jquery\src\css\curCSS.js" />
+    <Content Include="Scripts\lib\jquery\src\css\defaultDisplay.js" />
+    <Content Include="Scripts\lib\jquery\src\css\hiddenVisibleSelectors.js" />
+    <Content Include="Scripts\lib\jquery\src\css\support.js" />
+    <Content Include="Scripts\lib\jquery\src\css\swap.js" />
+    <Content Include="Scripts\lib\jquery\src\css\var\cssExpand.js" />
+    <Content Include="Scripts\lib\jquery\src\css\var\getStyles.js" />
+    <Content Include="Scripts\lib\jquery\src\css\var\isHidden.js" />
+    <Content Include="Scripts\lib\jquery\src\css\var\rmargin.js" />
+    <Content Include="Scripts\lib\jquery\src\css\var\rnumnonpx.js" />
+    <Content Include="Scripts\lib\jquery\src\data.js" />
+    <Content Include="Scripts\lib\jquery\src\data\accepts.js" />
+    <Content Include="Scripts\lib\jquery\src\data\Data.js" />
+    <Content Include="Scripts\lib\jquery\src\data\var\data_priv.js" />
+    <Content Include="Scripts\lib\jquery\src\data\var\data_user.js" />
+    <Content Include="Scripts\lib\jquery\src\deferred.js" />
+    <Content Include="Scripts\lib\jquery\src\deprecated.js" />
+    <Content Include="Scripts\lib\jquery\src\dimensions.js" />
+    <Content Include="Scripts\lib\jquery\src\effects.js" />
+    <Content Include="Scripts\lib\jquery\src\effects\animatedSelector.js" />
+    <Content Include="Scripts\lib\jquery\src\effects\Tween.js" />
+    <Content Include="Scripts\lib\jquery\src\event.js" />
+    <Content Include="Scripts\lib\jquery\src\event\ajax.js" />
+    <Content Include="Scripts\lib\jquery\src\event\alias.js" />
+    <Content Include="Scripts\lib\jquery\src\event\support.js" />
+    <Content Include="Scripts\lib\jquery\src\exports\amd.js" />
+    <Content Include="Scripts\lib\jquery\src\exports\global.js" />
+    <Content Include="Scripts\lib\jquery\src\intro.js" />
+    <Content Include="Scripts\lib\jquery\src\jquery.js" />
+    <Content Include="Scripts\lib\jquery\src\manipulation.js" />
+    <Content Include="Scripts\lib\jquery\src\manipulation\support.js" />
+    <Content Include="Scripts\lib\jquery\src\manipulation\var\rcheckableType.js" />
+    <Content Include="Scripts\lib\jquery\src\manipulation\_evalUrl.js" />
+    <Content Include="Scripts\lib\jquery\src\offset.js" />
+    <Content Include="Scripts\lib\jquery\src\outro.js" />
+    <Content Include="Scripts\lib\jquery\src\queue.js" />
+    <Content Include="Scripts\lib\jquery\src\queue\delay.js" />
+    <Content Include="Scripts\lib\jquery\src\selector-native.js" />
+    <Content Include="Scripts\lib\jquery\src\selector-sizzle.js" />
+    <Content Include="Scripts\lib\jquery\src\selector.js" />
+    <Content Include="Scripts\lib\jquery\src\serialize.js" />
+    <Content Include="Scripts\lib\jquery\src\sizzle\dist\sizzle.js" />
+    <Content Include="Scripts\lib\jquery\src\sizzle\dist\sizzle.min.js" />
+    <Content Include="Scripts\lib\jquery\src\traversing.js" />
+    <Content Include="Scripts\lib\jquery\src\traversing\findFilter.js" />
+    <Content Include="Scripts\lib\jquery\src\traversing\var\rneedsContext.js" />
+    <Content Include="Scripts\lib\jquery\src\var\arr.js" />
+    <Content Include="Scripts\lib\jquery\src\var\class2type.js" />
+    <Content Include="Scripts\lib\jquery\src\var\concat.js" />
+    <Content Include="Scripts\lib\jquery\src\var\hasOwn.js" />
+    <Content Include="Scripts\lib\jquery\src\var\indexOf.js" />
+    <Content Include="Scripts\lib\jquery\src\var\pnum.js" />
+    <Content Include="Scripts\lib\jquery\src\var\push.js" />
+    <Content Include="Scripts\lib\jquery\src\var\rnotwhite.js" />
+    <Content Include="Scripts\lib\jquery\src\var\slice.js" />
+    <Content Include="Scripts\lib\jquery\src\var\strundefined.js" />
+    <Content Include="Scripts\lib\jquery\src\var\support.js" />
+    <Content Include="Scripts\lib\jquery\src\var\toString.js" />
+    <Content Include="Scripts\lib\jquery\src\wrap.js" />
+    <Content Include="Scripts\lib\linqjs\jquery.arrayUtilities.js" />
+    <Content Include="Scripts\lib\linqjs\jquery.arrayUtilities.min.js" />
+    <Content Include="Scripts\lib\angular\.bower.json" />
+    <Content Include="Scripts\lib\angular\angular.min.js.gzip" />
+    <Content Include="Scripts\lib\angular\angular.min.js.map" />
+    <Content Include="Scripts\lib\angular\bower.json" />
+    <Content Include="Scripts\lib\angular\package.json" />
+    <Content Include="Scripts\lib\angular\README.md" />
+    <Content Include="Scripts\lib\angular-animate\.bower.json" />
+    <Content Include="Scripts\lib\angular-animate\angular-animate.min.js.map" />
+    <Content Include="Scripts\lib\angular-animate\bower.json" />
+    <Content Include="Scripts\lib\angular-animate\package.json" />
+    <Content Include="Scripts\lib\angular-animate\README.md" />
+    <Content Include="Scripts\lib\angular-loading-bar\.bower.json" />
+    <Content Include="Scripts\lib\angular-loading-bar\bower.json" />
+    <Content Include="Scripts\lib\angular-loading-bar\CHANGELOG.md" />
+    <Content Include="Scripts\lib\angular-loading-bar\LICENSE" />
+    <Content Include="Scripts\lib\angular-loading-bar\package.json" />
+    <Content Include="Scripts\lib\angular-loading-bar\README.md" />
+    <Content Include="Scripts\lib\angular-local-storage\.bower.json" />
+    <Content Include="Scripts\lib\angular-local-storage\.bowerrc" />
+    <Content Include="Scripts\lib\angular-local-storage\.travis.yml" />
+    <Content Include="Scripts\lib\angular-local-storage\bower.json" />
+    <Content Include="Scripts\lib\angular-local-storage\CHANGELOG.md" />
+    <Content Include="Scripts\lib\angular-local-storage\LICENSE" />
+    <Content Include="Scripts\lib\angular-local-storage\package.json" />
+    <Content Include="Scripts\lib\angular-local-storage\README.md" />
+    <Content Include="Scripts\lib\bootstrap\.bower.json" />
+    <Content Include="Scripts\lib\bootstrap\bower.json" />
+    <Content Include="Scripts\lib\bootstrap\dist\css\bootstrap-theme.css.map" />
+    <Content Include="Scripts\lib\bootstrap\dist\css\bootstrap.css.map" />
+    <Content Include="Scripts\lib\bootstrap\dist\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Scripts\lib\bootstrap\dist\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Scripts\lib\bootstrap\dist\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Scripts\lib\bootstrap\dist\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Scripts\lib\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Scripts\lib\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Scripts\lib\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Scripts\lib\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Scripts\lib\bootstrap\grunt\.jshintrc" />
+    <Content Include="Scripts\lib\bootstrap\grunt\configBridge.json" />
+    <Content Include="Scripts\lib\bootstrap\grunt\sauce_browsers.yml" />
+    <Content Include="Scripts\lib\bootstrap\js\.jscsrc" />
+    <Content Include="Scripts\lib\bootstrap\js\.jshintrc" />
+    <Content Include="Scripts\lib\bootstrap\less\.csscomb.json" />
+    <Content Include="Scripts\lib\bootstrap\less\.csslintrc" />
+    <Content Include="Scripts\lib\bootstrap\less\alerts.less" />
+    <Content Include="Scripts\lib\bootstrap\less\badges.less" />
+    <Content Include="Scripts\lib\bootstrap\less\bootstrap.less" />
+    <Content Include="Scripts\lib\bootstrap\less\breadcrumbs.less" />
+    <Content Include="Scripts\lib\bootstrap\less\button-groups.less" />
+    <Content Include="Scripts\lib\bootstrap\less\buttons.less" />
+    <Content Include="Scripts\lib\bootstrap\less\carousel.less" />
+    <Content Include="Scripts\lib\bootstrap\less\close.less" />
+    <Content Include="Scripts\lib\bootstrap\less\code.less" />
+    <Content Include="Scripts\lib\bootstrap\less\component-animations.less" />
+    <Content Include="Scripts\lib\bootstrap\less\dropdowns.less" />
+    <Content Include="Scripts\lib\bootstrap\less\forms.less" />
+    <Content Include="Scripts\lib\bootstrap\less\glyphicons.less" />
+    <Content Include="Scripts\lib\bootstrap\less\grid.less" />
+    <Content Include="Scripts\lib\bootstrap\less\input-groups.less" />
+    <Content Include="Scripts\lib\bootstrap\less\jumbotron.less" />
+    <Content Include="Scripts\lib\bootstrap\less\labels.less" />
+    <Content Include="Scripts\lib\bootstrap\less\list-group.less" />
+    <Content Include="Scripts\lib\bootstrap\less\media.less" />
+    <Content Include="Scripts\lib\bootstrap\less\mixins.less" />
+    <Content Include="Scripts\lib\bootstrap\less\mixins\alerts.less" />
+    <Content Include="Scripts\lib\bootstrap\less\mixins\background-variant.less" />
+    <Content Include="Scripts\lib\bootstrap\less\mixins\border-radius.less" />
+    <Content Include="Scripts\lib\bootstrap\less\mixins\buttons.less" />
+    <Content Include="Scripts\lib\bootstrap\less\mixins\center-block.less" />
+    <Content Include="Scripts\lib\bootstrap\less\mixins\clearfix.less" />
+    <Content Include="Scripts\lib\bootstrap\less\mixins\forms.less" />
+    <Content Include="Scripts\lib\bootstrap\less\mixins\gradients.less" />
+    <Content Include="Scripts\lib\bootstrap\less\mixins\grid-framework.less" />
+    <Content Include="Scripts\lib\bootstrap\less\mixins\grid.less" />
+    <Content Include="Scripts\lib\bootstrap\less\mixins\hide-text.less" />
+    <Content Include="Scripts\lib\bootstrap\less\mixins\image.less" />
+    <Content Include="Scripts\lib\bootstrap\less\mixins\labels.less" />
+    <Content Include="Scripts\lib\bootstrap\less\mixins\list-group.less" />
+    <Content Include="Scripts\lib\bootstrap\less\mixins\nav-divider.less" />
+    <Content Include="Scripts\lib\bootstrap\less\mixins\nav-vertical-align.less" />
+    <Content Include="Scripts\lib\bootstrap\less\mixins\opacity.less" />
+    <Content Include="Scripts\lib\bootstrap\less\mixins\pagination.less" />
+    <Content Include="Scripts\lib\bootstrap\less\mixins\panels.less" />
+    <Content Include="Scripts\lib\bootstrap\less\mixins\progress-bar.less" />
+    <Content Include="Scripts\lib\bootstrap\less\mixins\reset-filter.less" />
+    <Content Include="Scripts\lib\bootstrap\less\mixins\resize.less" />
+    <Content Include="Scripts\lib\bootstrap\less\mixins\responsive-visibility.less" />
+    <Content Include="Scripts\lib\bootstrap\less\mixins\size.less" />
+    <Content Include="Scripts\lib\bootstrap\less\mixins\tab-focus.less" />
+    <Content Include="Scripts\lib\bootstrap\less\mixins\table-row.less" />
+    <Content Include="Scripts\lib\bootstrap\less\mixins\text-emphasis.less" />
+    <Content Include="Scripts\lib\bootstrap\less\mixins\text-overflow.less" />
+    <Content Include="Scripts\lib\bootstrap\less\mixins\vendor-prefixes.less" />
+    <Content Include="Scripts\lib\bootstrap\less\modals.less" />
+    <Content Include="Scripts\lib\bootstrap\less\navbar.less" />
+    <Content Include="Scripts\lib\bootstrap\less\navs.less" />
+    <Content Include="Scripts\lib\bootstrap\less\normalize.less" />
+    <Content Include="Scripts\lib\bootstrap\less\pager.less" />
+    <Content Include="Scripts\lib\bootstrap\less\pagination.less" />
+    <Content Include="Scripts\lib\bootstrap\less\panels.less" />
+    <Content Include="Scripts\lib\bootstrap\less\popovers.less" />
+    <Content Include="Scripts\lib\bootstrap\less\print.less" />
+    <Content Include="Scripts\lib\bootstrap\less\progress-bars.less" />
+    <Content Include="Scripts\lib\bootstrap\less\responsive-embed.less" />
+    <Content Include="Scripts\lib\bootstrap\less\responsive-utilities.less" />
+    <Content Include="Scripts\lib\bootstrap\less\scaffolding.less" />
+    <Content Include="Scripts\lib\bootstrap\less\tables.less" />
+    <Content Include="Scripts\lib\bootstrap\less\theme.less" />
+    <Content Include="Scripts\lib\bootstrap\less\thumbnails.less" />
+    <Content Include="Scripts\lib\bootstrap\less\tooltip.less" />
+    <Content Include="Scripts\lib\bootstrap\less\type.less" />
+    <Content Include="Scripts\lib\bootstrap\less\utilities.less" />
+    <Content Include="Scripts\lib\bootstrap\less\variables.less" />
+    <Content Include="Scripts\lib\bootstrap\less\wells.less" />
+    <Content Include="Scripts\lib\bootstrap\LICENSE" />
+    <Content Include="Scripts\lib\bootstrap\package.json" />
+    <Content Include="Scripts\lib\bootstrap\README.md" />
+    <Content Include="Scripts\lib\jquery\.bower.json" />
+    <Content Include="Scripts\lib\jquery\bower.json" />
+    <Content Include="Scripts\lib\jquery\dist\jquery.min.map" />
+    <Content Include="Scripts\lib\jquery\src\sizzle\dist\sizzle.min.map" />
+    <Content Include="Scripts\lib\font-awesome\.bower.json" />
+    <Content Include="Scripts\lib\font-awesome\.npmignore" />
+    <Content Include="Scripts\lib\font-awesome\bower.json" />
+    <Content Include="Scripts\lib\font-awesome\css\font-awesome.css.map" />
+    <Content Include="Scripts\lib\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Scripts\lib\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Scripts\lib\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Scripts\lib\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Scripts\lib\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Scripts\lib\font-awesome\less\animated.less" />
+    <Content Include="Scripts\lib\font-awesome\less\bordered-pulled.less" />
+    <Content Include="Scripts\lib\font-awesome\less\core.less" />
+    <Content Include="Scripts\lib\font-awesome\less\fixed-width.less" />
+    <Content Include="Scripts\lib\font-awesome\less\font-awesome.less" />
+    <Content Include="Scripts\lib\font-awesome\less\icons.less" />
+    <Content Include="Scripts\lib\font-awesome\less\larger.less" />
+    <Content Include="Scripts\lib\font-awesome\less\list.less" />
+    <Content Include="Scripts\lib\font-awesome\less\mixins.less" />
+    <Content Include="Scripts\lib\font-awesome\less\path.less" />
+    <Content Include="Scripts\lib\font-awesome\less\rotated-flipped.less" />
+    <Content Include="Scripts\lib\font-awesome\less\stacked.less" />
+    <Content Include="Scripts\lib\font-awesome\less\variables.less" />
+    <Content Include="Scripts\lib\font-awesome\scss\font-awesome.scss" />
+    <Content Include="Scripts\lib\font-awesome\scss\_animated.scss" />
+    <Content Include="Scripts\lib\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="Scripts\lib\font-awesome\scss\_core.scss" />
+    <Content Include="Scripts\lib\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="Scripts\lib\font-awesome\scss\_icons.scss" />
+    <Content Include="Scripts\lib\font-awesome\scss\_larger.scss" />
+    <Content Include="Scripts\lib\font-awesome\scss\_list.scss" />
+    <Content Include="Scripts\lib\font-awesome\scss\_mixins.scss" />
+    <Content Include="Scripts\lib\font-awesome\scss\_path.scss" />
+    <Content Include="Scripts\lib\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="Scripts\lib\font-awesome\scss\_stacked.scss" />
+    <Content Include="Scripts\lib\font-awesome\scss\_variables.scss" />
+    <Content Include="Scripts\lib\angular-resource\.bower.json" />
+    <Content Include="Scripts\lib\angular-resource\angular-resource.min.js.map" />
+    <Content Include="Scripts\lib\angular-resource\bower.json" />
+    <Content Include="Scripts\lib\angular-resource\package.json" />
+    <Content Include="Scripts\lib\angular-resource\README.md" />
+    <Content Include="Scripts\lib\angular-route\.bower.json" />
+    <Content Include="Scripts\lib\angular-route\angular-route.min.js.map" />
+    <Content Include="Scripts\lib\angular-route\bower.json" />
+    <Content Include="Scripts\lib\angular-route\package.json" />
+    <Content Include="Scripts\lib\angular-route\README.md" />
+    <None Include="Scripts\lib\linqjs\linq-vsdoc.js" />
+    <Content Include="Scripts\lib\linqjs\linq.js" />
+    <Content Include="Scripts\lib\linqjs\linq.min.js" />
+    <Content Include="Scripts\lib\lodash\LICENSE.txt" />
+    <Content Include="Scripts\lib\lodash\lodash.js" />
+    <Content Include="Scripts\lib\lodash\lodash.min.js" />
+    <Content Include="Scripts\lib\ng-file-upload\angular-file-upload-all.js" />
+    <Content Include="Scripts\lib\ng-file-upload\angular-file-upload-all.min.js" />
+    <Content Include="Scripts\lib\ng-file-upload\angular-file-upload-shim.js" />
+    <Content Include="Scripts\lib\ng-file-upload\angular-file-upload-shim.min.js" />
+    <Content Include="Scripts\lib\ng-file-upload\angular-file-upload.js" />
+    <Content Include="Scripts\lib\ng-file-upload\angular-file-upload.min.js" />
+    <Content Include="Scripts\lib\ng-file-upload\FileAPI.flash.swf" />
+    <Content Include="Scripts\lib\ng-file-upload\FileAPI.min.js" />
+    <Content Include="Scripts\lib\ng-file-upload\ng-file-upload-all.js" />
+    <Content Include="Scripts\lib\ng-file-upload\ng-file-upload-all.min.js" />
+    <Content Include="Scripts\lib\ngmap\.gitattributes" />
+    <Content Include="Scripts\lib\ngmap\.gitignore" />
+    <Content Include="Scripts\lib\ngmap\app\scripts\app.js" />
+    <Content Include="Scripts\lib\ngmap\app\scripts\directives\bicycling-layer.js" />
+    <Content Include="Scripts\lib\ngmap\app\scripts\directives\cloud-layer.js" />
+    <Content Include="Scripts\lib\ngmap\app\scripts\directives\custom-control.js" />
+    <Content Include="Scripts\lib\ngmap\app\scripts\directives\drawing-manager.js" />
+    <Content Include="Scripts\lib\ngmap\app\scripts\directives\dynamic-maps-engine-layer.js" />
+    <Content Include="Scripts\lib\ngmap\app\scripts\directives\fusion-tables-layer.js" />
+    <Content Include="Scripts\lib\ngmap\app\scripts\directives\heatmap-layer.js" />
+    <Content Include="Scripts\lib\ngmap\app\scripts\directives\info-window.js" />
+    <Content Include="Scripts\lib\ngmap\app\scripts\directives\kml-layer.js" />
+    <Content Include="Scripts\lib\ngmap\app\scripts\directives\map-data.js" />
+    <Content Include="Scripts\lib\ngmap\app\scripts\directives\map-lazy-load.js" />
+    <Content Include="Scripts\lib\ngmap\app\scripts\directives\map-type.js" />
+    <Content Include="Scripts\lib\ngmap\app\scripts\directives\map.js" />
+    <Content Include="Scripts\lib\ngmap\app\scripts\directives\maps-engine-layer.js" />
+    <Content Include="Scripts\lib\ngmap\app\scripts\directives\map_controller.js" />
+    <Content Include="Scripts\lib\ngmap\app\scripts\directives\marker.js" />
+    <Content Include="Scripts\lib\ngmap\app\scripts\directives\overlay-map-type.js" />
+    <Content Include="Scripts\lib\ngmap\app\scripts\directives\shape.js" />
+    <Content Include="Scripts\lib\ngmap\app\scripts\directives\traffic-layer.js" />
+    <Content Include="Scripts\lib\ngmap\app\scripts\directives\transit-layer.js" />
+    <Content Include="Scripts\lib\ngmap\app\scripts\directives\weather-layer.js" />
+    <Content Include="Scripts\lib\ngmap\app\scripts\services\attr2_options.js" />
+    <Content Include="Scripts\lib\ngmap\app\scripts\services\geo_coder.js" />
+    <Content Include="Scripts\lib\ngmap\app\scripts\services\navigator_geolocation.js" />
+    <Content Include="Scripts\lib\ngmap\app\scripts\services\street_view.js" />
+    <Content Include="Scripts\lib\ngmap\build\docs\Attr2Options.html" />
+    <Content Include="Scripts\lib\ngmap\build\docs\attr2_options.js.html" />
+    <Content Include="Scripts\lib\ngmap\build\docs\bicycling-layer.html" />
+    <Content Include="Scripts\lib\ngmap\build\docs\bicycling-layer.js.html" />
+    <Content Include="Scripts\lib\ngmap\build\docs\cloud-layer.html" />
+    <Content Include="Scripts\lib\ngmap\build\docs\cloud-layer.js.html" />
+    <Content Include="Scripts\lib\ngmap\build\docs\custom-control.html" />
+    <Content Include="Scripts\lib\ngmap\build\docs\custom-control.js.html" />
+    <Content Include="Scripts\lib\ngmap\build\docs\drawing-manager.html" />
+    <Content Include="Scripts\lib\ngmap\build\docs\drawing-manager.js.html" />
+    <Content Include="Scripts\lib\ngmap\build\docs\dynamic-maps-engine-layer.html" />
+    <Content Include="Scripts\lib\ngmap\build\docs\dynamic-maps-engine-layer.js.html" />
+    <Content Include="Scripts\lib\ngmap\build\docs\fusion-tables-layer.html" />
+    <Content Include="Scripts\lib\ngmap\build\docs\fusion-tables-layer.js.html" />
+    <Content Include="Scripts\lib\ngmap\build\docs\GeoCoder.html" />
+    <Content Include="Scripts\lib\ngmap\build\docs\geo_coder.js.html" />
+    <Content Include="Scripts\lib\ngmap\build\docs\heatmap-layer.html" />
+    <Content Include="Scripts\lib\ngmap\build\docs\heatmap-layer.js.html" />
+    <Content Include="Scripts\lib\ngmap\build\docs\index.html" />
+    <Content Include="Scripts\lib\ngmap\build\docs\info-window.html" />
+    <Content Include="Scripts\lib\ngmap\build\docs\info-window.js.html" />
+    <Content Include="Scripts\lib\ngmap\build\docs\kml-layer.html" />
+    <Content Include="Scripts\lib\ngmap\build\docs\kml-layer.js.html" />
+    <Content Include="Scripts\lib\ngmap\build\docs\map-data.html" />
+    <Content Include="Scripts\lib\ngmap\build\docs\map-data.js.html" />
+    <Content Include="Scripts\lib\ngmap\build\docs\map-type.html" />
+    <Content Include="Scripts\lib\ngmap\build\docs\map-type.js.html" />
+    <Content Include="Scripts\lib\ngmap\build\docs\map.html" />
+    <Content Include="Scripts\lib\ngmap\build\docs\map.js.html" />
+    <Content Include="Scripts\lib\ngmap\build\docs\MapController.html" />
+    <Content Include="Scripts\lib\ngmap\build\docs\maps-engine-layer.html" />
+    <Content Include="Scripts\lib\ngmap\build\docs\maps-engine-layer.js.html" />
+    <Content Include="Scripts\lib\ngmap\build\docs\map_controller.js.html" />
+    <Content Include="Scripts\lib\ngmap\build\docs\marker.html" />
+    <Content Include="Scripts\lib\ngmap\build\docs\marker.js.html" />
+    <Content Include="Scripts\lib\ngmap\build\docs\NavigatorGeolocation.html" />
+    <Content Include="Scripts\lib\ngmap\build\docs\navigator_geolocation.js.html" />
+    <Content Include="Scripts\lib\ngmap\build\docs\overlay-map-type.html" />
+    <Content Include="Scripts\lib\ngmap\build\docs\overlay-map-type.js.html" />
+    <Content Include="Scripts\lib\ngmap\build\docs\scripts\linenumber.js" />
+    <Content Include="Scripts\lib\ngmap\build\docs\scripts\prettify\Apache-License-2.0.txt" />
+    <Content Include="Scripts\lib\ngmap\build\docs\scripts\prettify\lang-css.js" />
+    <Content Include="Scripts\lib\ngmap\build\docs\scripts\prettify\prettify.js" />
+    <Content Include="Scripts\lib\ngmap\build\docs\shape.html" />
+    <Content Include="Scripts\lib\ngmap\build\docs\shape.js.html" />
+    <Content Include="Scripts\lib\ngmap\build\docs\StreetView.html" />
+    <Content Include="Scripts\lib\ngmap\build\docs\street_view.js.html" />
+    <Content Include="Scripts\lib\ngmap\build\docs\styles\jsdoc-default.css" />
+    <Content Include="Scripts\lib\ngmap\build\docs\styles\prettify-jsdoc.css" />
+    <Content Include="Scripts\lib\ngmap\build\docs\styles\prettify-tomorrow.css" />
+    <Content Include="Scripts\lib\ngmap\build\docs\traffic-layer.html" />
+    <Content Include="Scripts\lib\ngmap\build\docs\traffic-layer.js.html" />
+    <Content Include="Scripts\lib\ngmap\build\docs\transit-layer.html" />
+    <Content Include="Scripts\lib\ngmap\build\docs\transit-layer.js.html" />
+    <Content Include="Scripts\lib\ngmap\build\docs\weather-layer.html" />
+    <Content Include="Scripts\lib\ngmap\build\docs\weather-layer.js.html" />
+    <Content Include="Scripts\lib\ngmap\build\scripts\ng-map.debug.js" />
+    <Content Include="Scripts\lib\ngmap\build\scripts\ng-map.js" />
+    <Content Include="Scripts\lib\ngmap\build\scripts\ng-map.min.js" />
+    <Content Include="Scripts\lib\ngmap\config\jsdoc\plugins\angular.js" />
+    <Content Include="Scripts\lib\ngmap\config\jsdoc\template\publish.js" />
+    <Content Include="Scripts\lib\ngmap\config\jsdoc\template\static\scripts\linenumber.js" />
+    <Content Include="Scripts\lib\ngmap\config\jsdoc\template\static\scripts\prettify\Apache-License-2.0.txt" />
+    <Content Include="Scripts\lib\ngmap\config\jsdoc\template\static\scripts\prettify\lang-css.js" />
+    <Content Include="Scripts\lib\ngmap\config\jsdoc\template\static\scripts\prettify\prettify.js" />
+    <Content Include="Scripts\lib\ngmap\config\jsdoc\template\static\styles\jsdoc-default.css" />
+    <Content Include="Scripts\lib\ngmap\config\jsdoc\template\static\styles\prettify-jsdoc.css" />
+    <Content Include="Scripts\lib\ngmap\config\jsdoc\template\static\styles\prettify-tomorrow.css" />
+    <Content Include="Scripts\lib\ngmap\config\karma.conf.js" />
+    <Content Include="Scripts\lib\ngmap\config\protractor.conf.js" />
+    <Content Include="Scripts\lib\ngmap\gulpfile.js" />
+    <Content Include="Scripts\lib\ngmap\spec\directives\map_controller_spec.js" />
+    <Content Include="Scripts\lib\ngmap\spec\directives\map_spec.js" />
+    <Content Include="Scripts\lib\ngmap\spec\directives\marker_spec.js" />
+    <Content Include="Scripts\lib\ngmap\spec\directives\shape_spec.js" />
+    <Content Include="Scripts\lib\ngmap\spec\e2e\testapp_spec.js" />
+    <Content Include="Scripts\lib\ngmap\spec\lib\angular-mocks.js" />
+    <Content Include="Scripts\lib\ngmap\spec\lib\angular.js" />
+    <Content Include="Scripts\lib\ngmap\spec\lib\markerclusterer.js" />
+    <Content Include="Scripts\lib\ngmap\spec\services\attr2_options_spec.js" />
+    <Content Include="Scripts\lib\ngmap\spec\services\geo_coder_spec.js" />
+    <Content Include="Scripts\lib\ngmap\spec\services\navigator_geolocation_spec.js" />
+    <Content Include="Scripts\lib\ngmap\spec\services\street_view_spec.js" />
+    <Content Include="Scripts\lib\ngmap\testapp\aerial-rotate.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\aerial-simple.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\circle-simple.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\control-custom-state.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\control-custom.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\control-disableUI.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\control-options.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\control-positioning.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\control-simple.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\drawing-manager.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\event-arguments.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\event-domlistener.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\event-properties.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\event-simple.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\events.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\events_controller_as.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\groundoverlay-simple.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\hello_map.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\icon-complex.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\icon-simple.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\images\beachflag.png" />
+    <Content Include="Scripts\lib\ngmap\testapp\images\spinner.gif" />
+    <Content Include="Scripts\lib\ngmap\testapp\infowindow-simple-max.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\infowindow-simple.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\infowindow_compile.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\infowindow_ng_click.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\layer-bicycling.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\layer-data-dynamic.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\layer-data-quakes-advanced.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\layer-data-quakes-default.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\layer-data-quakes-simple.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\layer-data-simple.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\layer-data-style.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\layer-dynamicmapsengine.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\layer-fusiontables-heatmap.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\layer-fusiontables-query.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\layer-fusiontables-simple.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\layer-fusiontables-styling.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\layer-georss.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\layer-heatmap.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\layer-kml-features.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\layer-kml.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\layer-mapsengine.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\layer-style-event.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\layer-traffic.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\layer-transit.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\layer-weather.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\map-coordinates.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\map-geolocation.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\map-lazy-load.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\map-projection-simple.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\map-simple.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\mapsenginelayer-noauth-layerid.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\mapsenginelayer-noauth-layerkey.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\maptype-base.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\maptype-image-overlay.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\maptype-image.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\maptype-overlay.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\maptype-styled-complex.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\maptype-styled-simple.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\map_app.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\map_control.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\map_events.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\map_fit_bounds.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\map_geo_fallback_center.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\map_lazy_init.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\map_options.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\map_street_view.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\map_street_view_with_bird_eyes.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\map_with_current_position.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\map_with_dynamic_address.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\map_with_dynamic_center.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\marker-animations-iteration.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\marker-animations.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\marker-clusterer.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\marker-remove.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\marker-simple.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\marker-symbol-custom.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\marker-symbol-predefined.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\marker.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\marker_dynamic_raw.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\marker_icon.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\marker_on_street_view.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\marker_with_address.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\marker_with_current_position.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\marker_with_dynamic_address.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\marker_with_dynamic_position.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\marker_with_info_window.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\marker_with_ng_repeat.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\marker_with_ng_repeat_dynamic.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\marker_with_parent_controller.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\multiple_maps_on_a_page.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\overlay-custom.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\overlay-hideshow.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\overlay-remove.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\overlay-simple.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\overlay-symbol-animate.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\overlay-symbol-arrow.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\overlay-symbol-custom.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\overlay-symbol-dashed.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\polygon-arrays.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\polygon-autoclose.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\polygon-draggable.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\polygon-simple.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\polyline-complex.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\polyline-remove.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\polyline-simple.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\rectangle-event.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\rectangle-simple.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\rectangle-zoom.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\scripts\app.js" />
+    <Content Include="Scripts\lib\ngmap\testapp\scripts\get-starbucks.js" />
+    <Content Include="Scripts\lib\ngmap\testapp\scripts\markerclusterer.js" />
+    <Content Include="Scripts\lib\ngmap\testapp\scripts\markerclusterer_packed.js" />
+    <Content Include="Scripts\lib\ngmap\testapp\scripts\markers.js" />
+    <Content Include="Scripts\lib\ngmap\testapp\scripts\plunkr.js" />
+    <Content Include="Scripts\lib\ngmap\testapp\shape.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\shape_circle_with_current_position.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\shape_circle_with_dynamic_address.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\shape_with_ng_repeat.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\taxi-data.js" />
+    <Content Include="Scripts\lib\ngmap\testapp\user-editable-shapes.html" />
+    <Content Include="Scripts\lib\ngmap\testapp\USGSOverlay.js" />
+    <Content Include="Scripts\lib\toaster\index.js" />
+    <Content Include="Scripts\lib\toaster\toaster.css" />
+    <Content Include="Scripts\lib\toaster\toaster.js" />
+    <Content Include="Scripts\lib\toaster\toaster.min.css" />
+    <Content Include="Scripts\lib\toaster\toaster.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\ui-bootstrap-tpls-0.12.1.min.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Scripts\lib\lodash\.bower.json" />
+    <Content Include="Scripts\lib\lodash\bower.json" />
+    <Content Include="Scripts\lib\toaster\.bower.json" />
+    <Content Include="Scripts\lib\toaster\bower.json" />
+    <Content Include="Scripts\lib\toaster\LICENSE" />
+    <Content Include="Scripts\lib\toaster\package.json" />
+    <Content Include="Scripts\lib\toaster\README.md" />
+    <Content Include="Scripts\lib\toaster\toaster.scss" />
+    <Content Include="Scripts\lib\ngmap\.bower.json" />
+    <Content Include="Scripts\lib\ngmap\.travis.yml" />
+    <Content Include="Scripts\lib\ngmap\app\.buildignore" />
+    <Content Include="Scripts\lib\ngmap\app\scripts\.jshintrc" />
+    <Content Include="Scripts\lib\ngmap\app\scripts\directives\.jshintrc" />
+    <Content Include="Scripts\lib\ngmap\app\scripts\services\.jshintrc" />
+    <Content Include="Scripts\lib\ngmap\bower.json" />
+    <Content Include="Scripts\lib\ngmap\config\jsdoc\template\README.md" />
+    <Content Include="Scripts\lib\ngmap\config\jsdoc\template\tmpl\container.tmpl" />
+    <Content Include="Scripts\lib\ngmap\config\jsdoc\template\tmpl\details.tmpl" />
+    <Content Include="Scripts\lib\ngmap\config\jsdoc\template\tmpl\example.tmpl" />
+    <Content Include="Scripts\lib\ngmap\config\jsdoc\template\tmpl\examples.tmpl" />
+    <Content Include="Scripts\lib\ngmap\config\jsdoc\template\tmpl\exceptions.tmpl" />
+    <Content Include="Scripts\lib\ngmap\config\jsdoc\template\tmpl\layout.tmpl" />
+    <Content Include="Scripts\lib\ngmap\config\jsdoc\template\tmpl\mainpage.tmpl" />
+    <Content Include="Scripts\lib\ngmap\config\jsdoc\template\tmpl\members.tmpl" />
+    <Content Include="Scripts\lib\ngmap\config\jsdoc\template\tmpl\method.tmpl" />
+    <Content Include="Scripts\lib\ngmap\config\jsdoc\template\tmpl\params.tmpl" />
+    <Content Include="Scripts\lib\ngmap\config\jsdoc\template\tmpl\properties.tmpl" />
+    <Content Include="Scripts\lib\ngmap\config\jsdoc\template\tmpl\returns.tmpl" />
+    <Content Include="Scripts\lib\ngmap\config\jsdoc\template\tmpl\source.tmpl" />
+    <Content Include="Scripts\lib\ngmap\config\jsdoc\template\tmpl\tutorial.tmpl" />
+    <Content Include="Scripts\lib\ngmap\config\jsdoc\template\tmpl\type.tmpl" />
+    <Content Include="Scripts\lib\ngmap\LICENSE" />
+    <Content Include="Scripts\lib\ngmap\package.json" />
+    <Content Include="Scripts\lib\ngmap\README.md" />
+    <Content Include="Scripts\lib\ngmap\testapp\heatmap.json" />
+    <Content Include="Scripts\lib\ngmap\testapp\scripts\quakes.geo.json" />
+    <Content Include="Scripts\lib\ngmap\testapp\scripts\starbucks.json" />
+    <Content Include="Scripts\lib\ng-file-upload\.bower.json" />
+    <Content Include="Scripts\lib\ng-file-upload\bower.json" />
+    <Content Include="Scripts\lib\ng-file-upload\LICENSE" />
+    <Content Include="Scripts\lib\ng-file-upload\npm-debug.log" />
+    <Content Include="Scripts\lib\ng-file-upload\README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="appbuild\views\" />
+    <Folder Include="App_Data\" />
+    <Folder Include="contentbuild\style\" />
+    <Folder Include="Filters\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Business\TryCatchShop.Business.csproj">
+      <Project>{6c6b3544-4808-4789-9bdc-68ae56bce043}</Project>
+      <Name>TryCatchShop.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DTO\TryCatchShop.DTO.csproj">
+      <Project>{59683375-908f-402f-b9ed-b0a7b1b253c3}</Project>
+      <Name>TryCatchShop.DTO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Logging\Logging.csproj">
+      <Project>{d4413cf8-ff06-4774-8ee1-d33c13c1489d}</Project>
+      <Name>Logging</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>25772</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:25479/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets')" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

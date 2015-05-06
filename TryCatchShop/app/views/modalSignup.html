@@ -1,0 +1,61 @@
+﻿<div class="modal-body">
+    <form class="form-sign" role="form">
+
+        <div class="row">
+
+            <div class="FormFix">
+                <div>
+                    <h2 class="titolomodal" data-ng-if="!registration.id>0">Registra un utente</h2>
+                    <h2 class="titolomodal" data-ng-if="registration.id>0">Modifica dati utente</h2>
+                    <button class="btnClose" type="submit" data-ng-click="closeReg()"></button>
+
+                </div>
+                <br/>
+                <span class="titlePreviewSignup">Nome</span>
+                <input type="text" class="form-control" placeholder="Nome" data-ng-model="registration.name" required autofocus>
+
+                <span class="titlePreviewSignup">Cognome</span>
+                <input type="text" class="form-control" placeholder="Cognome" data-ng-model="registration.surname" required autofocus>
+
+                <!--<span class="titlePreviewSignup">Indirizzo</span>
+                <input type="text" class="form-control" placeholder="Indirizzo" data-ng-model="registration.address" required autofocus>-->
+
+                <span class="titlePreviewSignup" data-ng-if="!registration.id>0">Username</span>
+                <input type="text" data-ng-if="!registration.id>0" class="form-control" placeholder="Username" data-ng-model="registration.userName" required autofocus>
+
+                <span class="titlePreviewSignup" data-ng-if="!registration.id>0">Password</span>
+                <input type="password" data-ng-if="!registration.id>0" class="form-control" placeholder="Password" data-ng-model="registration.password" required>
+
+                <span class="titlePreviewSignup" data-ng-if="!registration.id>0">Conferma password</span>
+                <input type="password" data-ng-if="!registration.id>0" class="form-control" placeholder="Conferma Password" data-ng-model="registration.confirmPassword" required>
+
+                <span class="titlePreviewSignup">Numero di telefono</span>
+                <input type="tel" class="form-control" placeholder="Numero di telefono" data-ng-model="registration.phoneNumber" required autofocus>
+
+                <span class="titlePreviewSignup">Email</span>
+                <input type="email" class="form-control" placeholder="Email" data-ng-model="registration.email" required autofocus>
+
+                <span data-ng-if="!registration.id>0" class="titlePreviewSignup">Ruolo</span>
+                <select data-ng-if="!registration.id>0" class="form-control" data-ng-model="registration.Role">
+                    <option value="Admin">Admin</option>
+                    <option value="Customer">Customer</option>
+                </select>
+
+
+                <span class="note">Tutti i campi sono obbligatori</span><br /><br />
+
+                <div class="clearfix visible-xs-block"></div>
+                <button data-ng-if="!registration.id>0" class="btn btnOrange" type="button" data-ng-click="saveData()">Registra utente</button>
+                <button data-ng-if="registration.id>0" class="btn btnOrange" type="button" data-ng-click="updateUser()">Aggiorna utente</button>
+                <div class="top20">
+
+                    <div data-ng-hide="message == ''" data-ng-class="(savedSuccessfully) ? 'alert alert-success' : 'alert alert-danger'">
+                        {{message}}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </form>
+</div>
